@@ -1,0 +1,64 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.collection_select(:product_id, Product.all.order('name ASC'),:id, :name, {include_blank: 'Select a Product'})  %>
+  </div>
+
+  <% if admin_signed_in? %>
+      <div class="field">
+        <%= form.label :cost %>
+        <%= form.number_field :cost %>
+      </div>
+
+      <div class="field">
+        <%= form.label :payment %>
+        <%= form.check_box :payment %>
+      </div>
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  
+
+<% end %>

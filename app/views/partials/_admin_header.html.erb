@@ -1,0 +1,26 @@
+<ul>
+ <li> <a href="/"><i class="fas fa-house-damage"></i> Home </a> </li>
+ <li>
+ <%= link_to products_path do %>
+    <i class="fas fa-list-ul"></i> Products
+ <% end %>
+ </li>
+ <li>
+ <%= link_to orders_path do %>
+    <i class="fas fa-list-ul"></i> Orders
+ <% end %>
+ </li>
+
+ <li>
+ <%= link_to new_order_path do %>
+    <i class="fas fa-plus-square"></i> New Orders
+ <% end %>
+ </li>
+
+ <li>
+ <%= link_to destroy_admin_session_path, :method => :delete do %>
+    <i class="fas fa-plus-square"></i> Logout
+ <% end %>
+ </li>
+</ul>
+
