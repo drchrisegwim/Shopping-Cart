@@ -1,6 +1,6 @@
 class OrdersMailer < ApplicationMailer
   default(
-      from: "My Ecommerce <norepky@gmail.com>",
+      from: "My Ecommerce <info@lagosboats.com>",
       reply_to: "My Ecommerce <emeksense@gmail.com>"
   ) 
   
